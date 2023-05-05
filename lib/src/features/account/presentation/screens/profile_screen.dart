@@ -102,19 +102,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Positioned(
                     top: 270.h,
                     left: 20.w,
-                    child: Row(
-                      //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        infoTiles('28', Icons.thumb_up_off_alt_sharp),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        infoTiles('30', Icons.bookmark_add_outlined),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        infoTiles('10', Icons.download_outlined),
-                      ],
+                    child: Center(
+                      child: Row(
+                        //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          infoTiles('28', Icons.thumb_up_off_alt_sharp),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          infoTiles('30', Icons.bookmark_add_outlined),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          infoTiles('10', Icons.download_outlined),
+                        ],
+                      ),
                     ),
                   ),
                   Positioned(
