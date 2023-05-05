@@ -34,7 +34,7 @@ class _BottomBarState extends State<BottomBar> {
         body: screens[selectedIndex],
         backgroundColor: backgroundColor,
         bottomNavigationBar: Container(
-          height: MediaQuery.of(context).size.height * 0.09,
+          height: 96.h,
           decoration: const BoxDecoration(
             boxShadow: <BoxShadow>[
               BoxShadow(
