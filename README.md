@@ -4,7 +4,7 @@
 State Managemet: Bloc/Cubit  
 
 
-API: [yts.mx/api ](https://yts.mx/api) 
+API: [yts api](https://yts.mx/api) 
   
   
 Features: 
