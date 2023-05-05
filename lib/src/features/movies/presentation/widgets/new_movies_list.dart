@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/constants/constants.dart';
 import 'package:movieapp/src/features/movies/presentation/screens/details_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget newMovies(BuildContext context, String image, int id, String ytLink) {
   return InkWell(
@@ -17,21 +18,21 @@ Widget newMovies(BuildContext context, String image, int id, String ytLink) {
       );
     },
     child: Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 10.h),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
               color: shadowColor,
-              spreadRadius: 1,
-              blurRadius: 10,
+              spreadRadius: 1.r,
+              blurRadius: 10.r,
             ),
           ],
         ),
-        width: 100,
-        height: 150,
+        width: 100.w,
+        height: 150.h,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8.0.r),
           child: CachedNetworkImage(
             fit: BoxFit.cover,
             imageUrl: image,

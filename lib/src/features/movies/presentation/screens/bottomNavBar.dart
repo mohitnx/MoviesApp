@@ -5,6 +5,7 @@ import 'package:movieapp/src/features/movies/presentation/screens/home_screen.da
 import 'package:movieapp/src/features/account/presentation/screens/profile_screen.dart';
 import 'package:movieapp/src/features/movies/presentation/screens/search_screen.dart';
 import 'package:movieapp/src/features/movies/presentation/widgets/custom_navbar_icons.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});

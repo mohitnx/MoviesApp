@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'package:movieapp/src/constants/constants.dart';
 import 'package:open_file/open_file.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget downloadList(String title) {
   String filePath =
@@ -18,28 +18,28 @@ Widget downloadList(String title) {
       }
     },
     child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: dropdownAreaColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           boxShadow: [
             BoxShadow(
                 color: shadowColor,
-                spreadRadius: 2,
+                spreadRadius: 2.r,
                 blurRadius: 10,
-                offset: Offset(0, 6)),
+                offset: Offset(0.w, 6.h)),
           ],
         ),
-        height: 65,
+        height: 65.h,
         child: Row(
           children: [
             Icon(
               Icons.filter_b_and_w_outlined,
               color: mainColor,
-              size: 40,
+              size: 40.sp,
             ),
             SizedBox(
-              width: 16,
+              width: 16.w,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,11 +52,11 @@ Widget downloadList(String title) {
                   style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 4.h,
                 ),
                 Row(
                   children: [
@@ -64,21 +64,21 @@ Widget downloadList(String title) {
                       '12:09.   ',
                       style: TextStyle(
                         color: secondaryTextColor,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                       ),
                     ),
                     Text(
                       '12.3 KB,   ',
                       style: TextStyle(
                         color: secondaryTextColor,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                       ),
                     ),
                     Text(
                       'TORRENT file',
                       style: TextStyle(
                         color: secondaryTextColor,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                       ),
                     ),
                   ],

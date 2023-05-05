@@ -13,7 +13,7 @@ import 'package:movieapp/src/features/movies/presentation/widgets/custom_button.
 import 'package:movieapp/src/features/movies/presentation/widgets/new_movies_list.dart';
 import 'package:movieapp/src/features/movies/presentation/widgets/popular_movies_list.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/movies_list/movies_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -86,9 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Positioned(
                   top: MediaQuery.of(context).size.height * 0.5 * 0.8,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 30,
-                      horizontal: 15,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 30.h,
+                      horizontal: 15.w,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 60, horizontal: 15),
+                      EdgeInsets.symmetric(vertical: 60.h, horizontal: 15.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -133,16 +133,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icon(
                             Icons.play_circle_outline,
                             color: mainColor,
-                            size: 45,
+                            size: 45.sp,
                           ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(
+                          Text(
                             'MovieOnline',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -153,13 +153,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icon(
                             Icons.notifications_outlined,
                             color: Colors.white,
-                            size: 35,
+                            size: 35.sp,
                           ),
                           Positioned(
-                            left: 17,
+                            left: 17.w,
                             child: Icon(
                               Icons.circle,
-                              size: 13,
+                              size: 13.sp,
                               color: Colors.red,
                             ),
                           )
@@ -172,14 +172,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 13.0),
+              padding: EdgeInsets.symmetric(horizontal: 13.0.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Popular Movies',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'see all',
                       style: TextStyle(
                         color: mainColor,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                       ),
                     ),
                     onPressed: () {
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (state is LoadingState) {
                     return Center(
                       child: SizedBox(
-                        height: 40,
+                        height: 40.h,
                         child: SpinKitDoubleBounce(color: mainColor),
                       ),
                     );
@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     final movies = temp.sublist(0, 19);
                     movies.shuffle();
                     return SizedBox(
-                      height: 200,
+                      height: 200.h,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
@@ -244,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         separatorBuilder: (BuildContext context, int index) =>
                             SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                       ),
                     );
@@ -262,14 +262,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 13.0),
+              padding: EdgeInsets.symmetric(horizontal: 13.0.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'New On Cinemas',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -279,7 +279,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'see all',
                       style: TextStyle(
                         color: mainColor,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                       ),
                     ),
                     onPressed: () {
@@ -297,13 +297,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //new movies
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13),
+              padding: EdgeInsets.symmetric(horizontal: 13.w),
               child: BlocBuilder<MoviesCubit, MoviesState>(
                 builder: (context, state) {
                   if (state is LoadingState) {
                     return Center(
                       child: SizedBox(
-                        height: 40,
+                        height: 40.h,
                         child: SpinKitDoubleBounce(color: mainColor),
                       ),
                     );
@@ -311,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     final moviess = state.movies;
                     moviess.shuffle();
                     return Container(
-                      height: 200,
+                      height: 200.h,
                       child: ListView.separated(
                         itemBuilder: (context, index) {
                           return newMovies(
@@ -324,7 +324,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: 5,
                         separatorBuilder: (BuildContext context, int index) =>
                             SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         scrollDirection: Axis.horizontal,
                       ),
@@ -335,7 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(
-              height: 14,
+              height: 14.h,
             ),
           ],
         ),

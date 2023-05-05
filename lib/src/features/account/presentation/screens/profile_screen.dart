@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/constants/constants.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movieapp/src/features/account/presentation/screens/edit_info_screen.dart';
 import 'package:movieapp/src/features/account/presentation/screens/welcome_screen.dart';
 
@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 300,
+                  height: 300.h,
                   decoration: BoxDecoration(color: dropdownAreaColor),
                 ),
                 Opacity(
@@ -35,12 +35,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'https://images.unsplash.com/photo-1600009723489-027195d6b3d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
                     fit: BoxFit.cover,
                     width: double.infinity,
-                    height: 300,
+                    height: 300.h,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 14.0, vertical: 16.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 14.w, vertical: 16.h),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -48,13 +48,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 28,
+                        fontSize: 26.sp,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
+                  padding: EdgeInsets.only(top: 50.h),
                   child: Stack(
                     children: [
                       Align(
@@ -63,19 +63,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(
-                                80), // adjust the radius as per your needs
+                                100.r), // adjust the radius as per your needs
                             border: Border.all(
                               color: mainColor,
-                              width: 4,
+                              width: 4.w,
                             ),
                           ),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(80),
+                            borderRadius: BorderRadius.circular(100.r),
                             child: CachedNetworkImage(
                               imageUrl:
                                   'https://images.unsplash.com/photo-1546743962-62ed8b1597ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80',
-                              width: 120,
-                              height: 120,
+                              width: 120.w,
+                              height: 120.h,
                               fit: BoxFit.cover,
                               placeholder: (context, url) =>
                                   SpinKitWaveSpinner(color: mainColor),
@@ -84,14 +84,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       Positioned(
-                        left: 210,
-                        top: 105,
+                        left: 210.w,
+                        top: 105.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.camera_alt,
                             color: mainColor,
-                            size: 30,
+                            size: 30.sp,
                           ),
                         ),
                       ),
@@ -99,8 +99,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 270,
-                  left: 20,
+                  top: 270.h,
+                  left: 20.w,
                   child: Row(
                     //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -117,8 +117,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 210,
-                  left: 165,
+                  top: 210.h,
+                  left: 165.w,
                   child: Row(
                     children: [
                       Text(
@@ -136,8 +136,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )
               ],
             ),
-            const SizedBox(
-              height: 60,
+            SizedBox(
+              height: 60.h,
             ),
             Padding(
               padding: const EdgeInsets.all(14.0),
@@ -161,12 +161,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Container(
                     padding: EdgeInsets.all(20),
-                    width: 400,
-                    height: 200,
+                    width: 400.w,
+                    height: 200.h,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(8.0.r),
                       border: Border.all(
-                        width: 1.0,
+                        width: 1.w,
                         color: mainColor,
                       ),
                     ),
@@ -198,7 +198,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 12,
+                    height: 12.h,
                   ),
                 ],
               ),
@@ -206,24 +206,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Padding(
               padding: EdgeInsets.all(14.0),
               child: Container(
-                height: 50,
+                height: 50.h,
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                       backgroundColor: Colors.transparent,
                       foregroundColor: Colors.black,
                       elevation: 0,
                       side: BorderSide(
-                        width: 2.0,
+                        width: 2.w,
                         color: Colors.white.withOpacity(0.5),
                       )),
                   child: Text(
                     'Logout',
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.5), fontSize: 14),
+                        color: Colors.white.withOpacity(0.5), fontSize: 14.sp),
                   ),
                   onPressed: () async {
                     Navigator.pushAndRemoveUntil(
@@ -271,12 +271,12 @@ Widget infoTiles(String text, IconData symbol) {
     height: 75,
     decoration: BoxDecoration(
       color: mainColor,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(10.r),
       boxShadow: [
         BoxShadow(
           color: Color.fromARGB(255, 0, 0, 0),
           spreadRadius: 1,
-          blurRadius: 15,
+          blurRadius: 15.r,
           offset: Offset(0, 10),
         ),
       ],
@@ -286,14 +286,14 @@ Widget infoTiles(String text, IconData symbol) {
       children: [
         Icon(
           symbol,
-          size: 34,
+          size: 34.sp,
           color: Colors.white,
         ),
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 18.sp,
           ),
         ),
       ],

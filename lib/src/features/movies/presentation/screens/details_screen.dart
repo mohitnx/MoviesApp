@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/features/movies/presentation/cubit/movie_details/movie_details_cubit.dart';

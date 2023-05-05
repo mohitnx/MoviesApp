@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +48,9 @@ class DescriptionBody extends StatefulWidget {
   @override
   State<DescriptionBody> createState() => _DescriptionBodyState();
 }
+
+//implement progressbar while downloading
+//https://stackoverflow.com/questions/60761984/flutter-how-to-download-video-and-save-them-to-internal-storage
 
 class _DescriptionBodyState extends State<DescriptionBody> {
   final box = Hive.box<List>('downloads');
@@ -185,12 +188,13 @@ class _DescriptionBodyState extends State<DescriptionBody> {
             children: [
               Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.52,
                     child: player,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60, horizontal: 15),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 60.h, horizontal: 15.w),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -198,7 +202,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                       icon: Icon(
                         Icons.arrow_back,
                         color: mainColor,
-                        size: 28,
+                        size: 28.sp,
                       ),
                     ),
                   ),
@@ -206,8 +210,8 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                     top: MediaQuery.of(context).size.width * 0.64,
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 60.h, horizontal: 20.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -218,10 +222,10 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 33),
+                                fontSize: 33.sp),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -230,10 +234,10 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                               Text(
                                 '1h 20m',
                                 style: TextStyle(
-                                    color: secondaryTextColor, fontSize: 14),
+                                    color: secondaryTextColor, fontSize: 14.sp),
                               ),
                               SizedBox(
-                                width: 9,
+                                width: 9.w,
                               ),
                               Container(
                                 color: mainColor,
@@ -245,8 +249,8 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 10.h,
                           ),
                           /////
                           SizedBox(
@@ -259,18 +263,18 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                                       maxLines: 1,
                                       style: TextStyle(
                                           color: secondaryTextColor,
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     Center(
                                       child: Icon(
                                         Icons.circle,
                                         color: mainColor,
-                                        size: 5,
+                                        size: 5.sp,
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 4,
+                                      width: 4.w,
                                     ),
                                   ],
                                 );
@@ -284,29 +288,29 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                 ],
               ),
               Container(
-                height: 10,
+                height: 10.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color.fromARGB(204, 0, 0, 0),
-                      Color.fromARGB(255, 46, 29, 29).withOpacity(0.0),
+                      const Color.fromARGB(204, 0, 0, 0),
+                      const Color.fromARGB(255, 46, 29, 29).withOpacity(0.0),
                     ],
-                    stops: [0.0, 2.0],
+                    stops: const [0.0, 2.0],
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 17.0),
+                padding: EdgeInsets.symmetric(horizontal: 17.0.w),
                 child: Divider(
                   thickness: 0.14,
                   color: mainColor,
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -316,7 +320,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                   //Vertical divider didn't show by default so had to wrap it in contaier
 
                   SizedBox(
-                    height: 80,
+                    height: 80.h,
                     child: Row(
                       children: [
                         VerticalDivider(
@@ -330,7 +334,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                       Icons.file_download, 'Download', downloadFunction),
 
                   SizedBox(
-                    height: 80,
+                    height: 80.h,
                     child: Row(
                       children: [
                         VerticalDivider(
@@ -344,10 +348,10 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 17.0),
+                padding: EdgeInsets.symmetric(horizontal: 17.0.w),
                 child: Divider(
                   thickness: 0.14,
                   color: mainColor,
@@ -363,29 +367,29 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                         },
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 10),
+                              horizontal: 16.w, vertical: 10.h),
                           child: Text(
                             widget.description,
                             style: TextStyle(
                                 color: secondaryTextColor,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w300),
                           ),
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 18.w, vertical: 10.h),
                         child: Row(
                           children: [
                             Text(
                               'Cast:  ',
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * .80,
                               child: Wrap(
                                 children: tempValues.map((var item) {
@@ -393,7 +397,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                                     item + ', ',
                                     style: TextStyle(
                                         color: Colors.white70,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w400),
                                   );
                                 }).toList(),
@@ -404,22 +408,22 @@ class _DescriptionBodyState extends State<DescriptionBody> {
                       ),
                       //director name not provided so used static data
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 18.w, vertical: 10.h),
                         child: Row(
                           children: [
                             Text(
                               'Director:  ',
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
                               'Martin Tarantino',
                               style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.w400),
                             ),
                           ],

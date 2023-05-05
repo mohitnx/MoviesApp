@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
 import 'package:movieapp/src/common/widgets/snackbarr.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movieapp/src/constants/constants.dart';
 import 'package:movieapp/src/features/account/data/models/user_model.dart';
 import 'package:movieapp/src/features/account/presentation/screens/signup_screen.dart';
@@ -45,55 +46,55 @@ class _SignupScreenState extends State<SignupScreen> {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.r), topRight: Radius.circular(20.r)),
         color: dropdownAreaColor,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Welcome back',
               style: TextStyle(
-                fontSize: 30.0,
+                fontSize: 30.sp,
                 color: mainColor,
                 fontWeight: FontWeight.w700,
               ),
             ),
             SizedBox(
-              height: size.height * 0.01,
+              height: size.height.h * 0.01,
             ),
             Text(
               'Please enter your credentials',
               style: TextStyle(
-                fontSize: 18.0,
+                fontSize: 18.sp,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: size.height * 0.04,
+              height: size.height.h * 0.04,
             ),
 
-            logo(size.height / 8, size.height / 8),
+            logo(size.height.h / 8, size.height / 8),
             SizedBox(
-              height: size.height * 0.03,
+              height: size.height.h * 0.03,
             ),
 
             SizedBox(
-              height: size.height * 0.05,
+              height: size.height.h * 0.05,
             ),
 
             Container(
               alignment: Alignment.center,
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              height: 60.h,
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8.r),
                 border: Border.all(
-                  width: 1.0,
+                  width: 1.w,
                   color: const Color(0xFFEFEFEF),
                 ),
               ),
@@ -101,21 +102,21 @@ class _SignupScreenState extends State<SignupScreen> {
                 controller: nameController,
                 style: TextStyle(color: secondaryTextColor),
                 maxLines: 1,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                     labelText: 'Name',
                     labelStyle: TextStyle(
-                      fontSize: 12.0,
+                      fontSize: 12.sp,
                       color: Color(0xFF969AA8),
                     ),
                     border: InputBorder.none),
               ),
             ),
             SizedBox(
-              height: size.height * 0.02,
+              height: size.height.h * 0.02,
             ),
 
             SizedBox(
-              height: size.height * 0.03,
+              height: size.height.h * 0.03,
             ),
 
             GestureDetector(
@@ -148,25 +149,25 @@ class _SignupScreenState extends State<SignupScreen> {
               },
               child: Container(
                 alignment: Alignment.center,
-                height: 60,
+                height: 60.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.r),
                   color: backgroundColor,
                 ),
-                child: const Text(
+                child: Text(
                   "Log In",
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 20.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
-                    height: 1.5,
+                    height: 1.5.h,
                   ),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
             SizedBox(
-              height: size.height * 0.04,
+              height: size.height.h * 0.04,
             ),
 
             //footer section. sign up text here
@@ -191,7 +192,7 @@ class _SignupScreenState extends State<SignupScreen> {
       children: [
         Text(
           'Dont have an account?  ',
-          style: TextStyle(color: secondaryTextColor, fontSize: 14),
+          style: TextStyle(color: secondaryTextColor, fontSize: 14.sp),
         ),
         InkWell(
           onTap: () {
@@ -203,7 +204,7 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Text(
             'Sign Up',
             style: TextStyle(
-                color: mainColor, fontWeight: FontWeight.w700, fontSize: 14),
+                color: mainColor, fontWeight: FontWeight.w700, fontSize: 14.sp),
           ),
         ),
       ],

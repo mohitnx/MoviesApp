@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
 class DelayedAnimation extends StatefulWidget {
@@ -24,7 +24,7 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 400));
     final curve = CurvedAnimation(curve: Curves.ease, parent: controller!);
-    animOffset = Tween<Offset>(begin: const Offset(0.0, 0.35), end: Offset.zero)
+    animOffset = Tween<Offset>(begin: Offset(0.0.w, 0.35.h), end: Offset.zero)
         .animate(curve);
 
     if (widget.delay == null) {

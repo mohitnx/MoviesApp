@@ -6,6 +6,7 @@ import 'package:movieapp/src/constants/constants.dart';
 import 'package:movieapp/src/features/account/presentation/screens/signin_screen.dart';
 import 'package:movieapp/src/features/account/presentation/screens/signup_screen.dart';
 import 'package:movieapp/src/features/account/presentation/widgets/delayed_animations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -45,31 +46,31 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12.0, horizontal: 40),
+                    padding: EdgeInsets.symmetric(
+                        vertical: 12.0.h, horizontal: 40.w),
                     child: SvgPicture.asset(
                       'assets/svgs/welcomeScreen1.svg',
                     ),
                   ),
                   DelayedAnimation(
                     delay: delayedAmount + 500,
-                    child: const Text(
+                    child: Text(
                       "Welcome to YTS",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 38,
+                          fontSize: 38.sp,
                           color: Colors.white),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30.0,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   DelayedAnimation(
                     delay: delayedAmount + 1000,
-                    child: const Text(
+                    child: Text(
                       "Your one step destination",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 20.sp,
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
                       ),
@@ -77,10 +78,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                   DelayedAnimation(
                     delay: delayedAmount + 1000,
-                    child: const Text(
+                    child: Text(
                       "for all things movie",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 20.sp,
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
                       ),
@@ -108,7 +109,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         child: DelayedAnimation(
                           delay: delayedAmount + 2000,
                           child: AvatarGlow(
-                            endRadius: 80,
+                            endRadius: 80.r,
                             duration: const Duration(seconds: 2),
                             glowColor: mainColor,
                             repeat: true,
@@ -144,17 +145,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   }
 
   Widget get _animatedButtonUI => Container(
-        height: 50,
-        width: 200,
+        height: 50.h,
+        width: 200.w,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7.0),
+          borderRadius: BorderRadius.circular(7.0.r),
           color: mainColor,
         ),
-        child: const Center(
+        child: Center(
           child: Text(
             'Get Started',
             style: TextStyle(
-              fontSize: 20.0,
+              fontSize: 20.0.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),

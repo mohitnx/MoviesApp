@@ -7,7 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/features/movies/data/models/movie_model.dart';
 import 'package:movieapp/src/features/movies/presentation/cubit/movie_search/movie_search_cubit.dart';
 import 'package:movieapp/src/features/movies/presentation/widgets/fitler_widget.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../constants/constants.dart';
 
 import '../widgets/popular_movies_list.dart';
@@ -69,38 +69,39 @@ class _SearchTermResultsState extends State<SearchTermResults> {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.only(
-          right: 20.0,
-          left: 20.0,
-          bottom: 10.0,
-          top: 40,
+        padding: EdgeInsets.only(
+          right: 20.0.w,
+          left: 20.0.w,
+          bottom: 10.h,
+          top: 40.h,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Search',
               style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                  fontSize: 32),
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+                fontSize: 32.sp,
+              ),
             ),
-            const SizedBox(
-              height: 25,
+            SizedBox(
+              height: 25.h,
             ),
             Container(
-              decoration: const BoxDecoration(boxShadow: [
+              decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
                   color: Color.fromARGB(212, 12, 10, 20),
-                  spreadRadius: 4,
-                  blurRadius: 30,
+                  spreadRadius: 4.r,
+                  blurRadius: 30.r,
                 ),
               ]),
               child: TextFormField(
                 controller: widget.searchTerm,
                 style: TextStyle(color: secondaryTextColor),
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 15),
+                  contentPadding: EdgeInsets.only(top: 15.w),
                   focusedBorder: InputBorder.none,
                   prefixIcon: IconButton(
                     onPressed: () {
@@ -127,72 +128,76 @@ class _SearchTermResultsState extends State<SearchTermResults> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: 30.h,
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 2, left: 5, right: 5, top: 12),
+              padding: EdgeInsets.only(
+                  bottom: 2.h, left: 5.w, right: 5.w, top: 12.h),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(
                     color: dropdownAreaColor,
                   )),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FilterWidget(
-                    searchTerm: widget.searchTerm,
-                    selectedItem: 'All',
-                    label: 'Genre:',
-                    items: genreType,
-                    onChanged: (value) {
-                      setState(() {
-                        filterVal1 = value;
-                      });
-                      onFilterChanged(
-                          filterVal1!, filterVal2!, filterVal3!, filterVal4!);
-                    },
-                  ),
-                  FilterWidget(
-                    searchTerm: widget.searchTerm,
-                    selectedItem: 'All',
-                    label: 'Quality:',
-                    items: qualityType,
-                    onChanged: (value) {
-                      setState(() {
-                        filterVal2 = value;
-                      });
-                      onFilterChanged(
-                          filterVal1!, filterVal2!, filterVal3!, filterVal4!);
-                    },
-                  ),
-                  FilterWidget(
-                    searchTerm: widget.searchTerm,
-                    selectedItem: 'Desc',
-                    label: 'Order',
-                    items: orderType,
-                    onChanged: (value) {
-                      setState(() {
-                        filterVal3 = value;
-                      });
-                      onFilterChanged(
-                          filterVal1!, filterVal2!, filterVal3!, filterVal4!);
-                    },
-                  ),
-                  FilterWidget(
-                    searchTerm: widget.searchTerm,
-                    selectedItem: 'Date_added',
-                    label: 'Sort',
-                    items: sortType,
-                    onChanged: (value) {
-                      setState(() {
-                        filterVal4 = value;
-                      });
-                      onFilterChanged(
-                          filterVal1!, filterVal2!, filterVal3!, filterVal4!);
-                    },
-                  ),
-                ],
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FilterWidget(
+                      searchTerm: widget.searchTerm,
+                      selectedItem: 'All',
+                      label: 'Genre:',
+                      items: genreType,
+                      onChanged: (value) {
+                        setState(() {
+                          filterVal1 = value;
+                        });
+                        onFilterChanged(
+                            filterVal1!, filterVal2!, filterVal3!, filterVal4!);
+                      },
+                    ),
+                    FilterWidget(
+                      searchTerm: widget.searchTerm,
+                      selectedItem: 'All',
+                      label: 'Quality:',
+                      items: qualityType,
+                      onChanged: (value) {
+                        setState(() {
+                          filterVal2 = value;
+                        });
+                        onFilterChanged(
+                            filterVal1!, filterVal2!, filterVal3!, filterVal4!);
+                      },
+                    ),
+                    FilterWidget(
+                      searchTerm: widget.searchTerm,
+                      selectedItem: 'Desc',
+                      label: 'Order',
+                      items: orderType,
+                      onChanged: (value) {
+                        setState(() {
+                          filterVal3 = value;
+                        });
+                        onFilterChanged(
+                            filterVal1!, filterVal2!, filterVal3!, filterVal4!);
+                      },
+                    ),
+                    FilterWidget(
+                      searchTerm: widget.searchTerm,
+                      selectedItem: 'Date_added',
+                      label: 'Sort',
+                      items: sortType,
+                      onChanged: (value) {
+                        setState(() {
+                          filterVal4 = value;
+                        });
+                        onFilterChanged(
+                            filterVal1!, filterVal2!, filterVal3!, filterVal4!);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             BlocBuilder<MovieSearchCubit, MovieSearchState>(
@@ -200,7 +205,7 @@ class _SearchTermResultsState extends State<SearchTermResults> {
               if (state is LoadingSearchState) {
                 return Center(
                   child: SizedBox(
-                    height: 40,
+                    height: 40.h,
                     child: SpinKitDoubleBounce(color: mainColor),
                   ),
                 );
@@ -213,7 +218,7 @@ class _SearchTermResultsState extends State<SearchTermResults> {
                         Text(
                           'No results for your query.',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 20.sp,
                             color: secondaryTextColor,
                           ),
                         ),
@@ -240,7 +245,7 @@ class _SearchTermResultsState extends State<SearchTermResults> {
                   child: Text(
                     'Opps, something went wrong',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       color: mainColor,
                     ),
                   ),
@@ -273,37 +278,38 @@ class SearchTermsDetailsState extends State<SearchTermsDetails> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(
-          height: 30,
+        SizedBox(
+          height: 30.h,
         ),
         RichText(
           text: TextSpan(
             children: <TextSpan>[
-              const TextSpan(
+              TextSpan(
                 text: 'Results for  ',
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
-                    fontSize: 18),
+                    fontSize: 18.sp),
               ),
               TextSpan(
                   text: widget.searchTerm.text + '  ',
                   style: TextStyle(
                       color: mainColor,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontStyle: FontStyle.italic)),
               TextSpan(
                 text: '[ ${widget.queryMovies.length.toString()} ]',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 18),
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                  fontSize: 18.sp,
+                ),
               ),
             ],
           ),
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: 20.h,
         ),
         Expanded(
           child: ListView.separated(
@@ -321,9 +327,8 @@ class SearchTermsDetailsState extends State<SearchTermsDetails> {
                 widget.queryMovies[index].youtubelink ?? 'xBFWMYmm9ro',
               );
             },
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(
-              height: 22,
+            separatorBuilder: (BuildContext context, int index) => SizedBox(
+              height: 22.h,
             ),
           ),
         ),

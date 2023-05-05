@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:movieapp/src/constants/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
   final String text;
@@ -14,8 +15,8 @@ class CustomPrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 42,
+      width: 100.w,
+      height: 42.h,
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
           elevation: 0,
@@ -24,11 +25,11 @@ class CustomPrimaryButton extends StatelessWidget {
         icon: Icon(
           Icons.play_arrow,
           color: color,
-          size: 24.0,
+          size: 24.0.sp,
         ),
         label: Text(
-          text + ' ',
-          style: TextStyle(fontSize: 14),
+          '$text   ',
+          style: TextStyle(fontSize: 14.sp),
         ),
         onPressed: () {},
       ),
@@ -51,26 +52,26 @@ class CustomSecondaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 42,
-      width: 110,
+    return SizedBox(
+      height: 42.h,
+      width: 120.w,
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
             foregroundColor: Colors.black,
             elevation: 0,
             side: BorderSide(
-              width: 2.0,
+              width: 2.0.w,
               color: Colors.white.withOpacity(0.5),
             )),
         icon: Icon(
           Icons.desktop_windows_outlined,
           color: color,
-          size: 24.0,
+          size: 22.0.sp,
         ),
         label: Text(
           text,
-          style: TextStyle(color: color, fontSize: 14),
+          style: TextStyle(color: color, fontSize: 14.sp),
         ),
         onPressed: () {},
       ),

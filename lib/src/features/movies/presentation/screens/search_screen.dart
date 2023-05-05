@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/constants/constants.dart';
 
 import 'package:movieapp/src/features/movies/presentation/screens/search_results_screen.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/movies_list/movies_cubit.dart';
 import '../widgets/popular_movies_list.dart';
 
@@ -24,31 +24,31 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.only(
-          right: 20.0,
-          left: 20.0,
-          bottom: 10.0,
-          top: 80,
+        padding: EdgeInsets.only(
+          right: 20.0.w,
+          left: 20.0.w,
+          bottom: 10.h,
+          top: 80.h,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Search',
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
-                  fontSize: 32),
+                  fontSize: 32.sp),
             ),
-            const SizedBox(
-              height: 25,
+            SizedBox(
+              height: 25.sp,
             ),
             Container(
-              decoration: const BoxDecoration(boxShadow: [
+              decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
-                  color: Color.fromARGB(212, 12, 10, 20),
-                  spreadRadius: 4,
-                  blurRadius: 30,
+                  color: const Color.fromARGB(212, 12, 10, 20),
+                  spreadRadius: 4.r,
+                  blurRadius: 30.r,
                 ),
               ]),
               child: TextFormField(
@@ -65,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 controller: searchTermController,
                 style: TextStyle(color: secondaryTextColor),
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(top: 15),
+                  contentPadding: EdgeInsets.only(top: 15.h),
                   focusedBorder: InputBorder.none,
                   hintText: 'Search title, categories, etc...',
                   hintStyle: TextStyle(color: secondaryTextColor),
@@ -81,18 +81,18 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: 30.h,
             ),
-            const Text(
+            Text(
               'Popular Search',
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
-                  fontSize: 18),
+                  fontSize: 18.sp),
             ),
-            const SizedBox(
-              height: 24,
+            SizedBox(
+              height: 24.h,
             ),
             BlocBuilder<MoviesCubit, MoviesState>(
               builder: (context, state) {
@@ -100,7 +100,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 if (state is LoadingState) {
                   return Center(
                     child: SizedBox(
-                      height: 40,
+                      height: 40.h,
                       child: SpinKitDoubleBounce(color: mainColor),
                     ),
                   );
@@ -128,8 +128,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) =>
-                          const SizedBox(
-                        height: 22,
+                          SizedBox(
+                        height: 22.h,
                       ),
                     ),
                   );

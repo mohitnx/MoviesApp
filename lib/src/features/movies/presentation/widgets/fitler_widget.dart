@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/src/constants/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterWidget extends StatefulWidget {
   final TextEditingController searchTerm;
@@ -40,11 +41,11 @@ class _FilterWidgetState extends State<FilterWidget> {
               TextStyle(color: secondaryTextColor, fontWeight: FontWeight.bold),
         ),
         SizedBox(
-          height: 4,
+          height: 4.h,
         ),
         DropdownButton<String>(
           dropdownColor: dropdownAreaColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
           focusColor: mainColor,
           style: TextStyle(color: mainColor),
           value: selectedItemm,
@@ -52,12 +53,10 @@ class _FilterWidgetState extends State<FilterWidget> {
               .map(
                 (e) => DropdownMenuItem(
                   value: e,
-                  child: Container(
-                    child: Text(
-                      e,
-                      style: TextStyle(
-                        color: mainColor,
-                      ),
+                  child: Text(
+                    e,
+                    style: TextStyle(
+                      color: mainColor,
                     ),
                   ),
                 ),
@@ -70,9 +69,9 @@ class _FilterWidgetState extends State<FilterWidget> {
 
             widget.onChanged(value!);
           }),
-          icon: Icon(Icons.arrow_drop_down),
-          iconSize: 30,
-          underline: SizedBox(),
+          icon: const Icon(Icons.arrow_drop_down),
+          iconSize: 30.sp,
+          underline: const SizedBox(),
         ),
       ],
     );

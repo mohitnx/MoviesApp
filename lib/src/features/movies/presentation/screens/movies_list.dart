@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:movieapp/src/constants/constants.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/movies_list/movies_cubit.dart';
 import '../widgets/popular_movies_list.dart';
 
@@ -26,8 +26,8 @@ class _MoviesListState extends State<MoviesList> {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.only(
-            left: 14.0, right: 12.0, bottom: 4.0, top: 40),
+        padding:
+            EdgeInsets.only(left: 14.w, right: 12.w, bottom: 4.h, top: 40.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,7 +36,7 @@ class _MoviesListState extends State<MoviesList> {
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
-                  fontSize: 24),
+                  fontSize: 24.sp),
             ),
             const SizedBox(
               height: 10,
@@ -47,7 +47,7 @@ class _MoviesListState extends State<MoviesList> {
                 if (state is LoadingState) {
                   return Center(
                     child: SizedBox(
-                      height: 40,
+                      height: 40.h,
                       child: SpinKitDoubleBounce(color: mainColor),
                     ),
                   );
@@ -75,7 +75,7 @@ class _MoviesListState extends State<MoviesList> {
                       },
                       separatorBuilder: (BuildContext context, int index) =>
                           SizedBox(
-                        height: 15,
+                        height: 15.h,
                       ),
                     ),
                   );

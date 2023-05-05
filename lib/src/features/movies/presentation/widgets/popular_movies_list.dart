@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/src/constants/constants.dart';
 import 'package:movieapp/src/features/movies/presentation/screens/details_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget popularMovies(
   BuildContext context,
@@ -28,27 +29,27 @@ Widget popularMovies(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 10,
+          height: 10.h,
         ),
-        Container(
-          width: 160,
+        SizedBox(
+          width: 160.w,
           child: Stack(
             children: [
               Container(
-                height: 100,
+                height: 100.h,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       color: shadowColor,
-                      spreadRadius: 1,
-                      blurRadius: 10,
+                      spreadRadius: 1.r,
+                      blurRadius: 10.r,
                     ),
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                   child: CachedNetworkImage(
-                    width: 170,
+                    width: 170.w,
                     fit: BoxFit.cover,
                     imageUrl: image,
                     errorWidget: (context, url, error) => Image.network(
@@ -77,29 +78,31 @@ Widget popularMovies(
             ],
           ),
         ),
-        const SizedBox(
-          height: 8,
+        SizedBox(
+          height: 8.h,
         ),
         SizedBox(
-          width: 160,
+          width: 160.w,
           child: Text(
             title,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 15),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 15.sp),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: 5.h,
         ),
         SizedBox(
-          width: 160,
+          width: 160.w,
           child: Text(
             description,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: TextStyle(color: secondaryTextColor, fontSize: 12),
+            style: TextStyle(color: secondaryTextColor, fontSize: 12.sp),
           ),
         ),
       ],
@@ -123,26 +126,26 @@ Widget popularMoviesVertical(BuildContext context, String title,
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 160,
+        SizedBox(
+          width: 160.w,
           child: Stack(
             children: [
               Container(
-                height: 100,
+                height: 100.h,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       color: shadowColor,
-                      spreadRadius: 1,
-                      blurRadius: 10,
+                      spreadRadius: 1.r,
+                      blurRadius: 10.r,
                     ),
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                   child: CachedNetworkImage(
                     imageUrl: image,
-                    width: 160,
+                    width: 160.w,
                     fit: BoxFit.cover,
                     errorWidget: (context, url, error) => Image.network(
                       'https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bm8lMjBpbWFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60',
@@ -170,42 +173,42 @@ Widget popularMoviesVertical(BuildContext context, String title,
             ],
           ),
         ),
-        const SizedBox(
-          width: 12,
+        SizedBox(
+          width: 12.w,
         ),
         Column(
           children: [
             SizedBox(
-              width: 180,
+              width: 180.w,
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 15),
+                    fontSize: 14.sp),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            const SizedBox(
-              height: 7,
+            SizedBox(
+              height: 5.h,
             ),
             SizedBox(
-              width: 180,
+              width: 180.w,
               child: Text(
                 description,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(color: secondaryTextColor, fontSize: 12),
+                style: TextStyle(color: secondaryTextColor, fontSize: 11.sp),
               ),
             ),
             SizedBox(
-              height: 39,
+              height: 38.h,
             ),
 
             //taking each item of list genre and returing a Text widget
             SizedBox(
-              width: 180,
+              width: 180.w,
               //using row we got overflow...and didn't want to make such a tiny scrollable row here..not good ui i think
               child: Wrap(
                 children: genre.map((var item) {
@@ -213,7 +216,7 @@ Widget popularMoviesVertical(BuildContext context, String title,
                     item + ', ',
                     style: TextStyle(
                         color: secondaryTextColor,
-                        fontSize: 13,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w300),
                   );
                 }).toList(),
