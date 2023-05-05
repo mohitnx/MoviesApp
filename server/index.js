@@ -21,5 +21,3 @@ app.listen(PORT,"0.0.0.0", () =>{
 });
 
 
-//username:mohitneupane157
-//pw:4ZDxmkTSTVu4l4HD
