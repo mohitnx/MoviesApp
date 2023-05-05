@@ -12,7 +12,6 @@ import 'package:movieapp/src/features/movies/presentation/cubit/movie_details/mo
 import 'package:movieapp/src/features/movies/presentation/cubit/movie_search/movie_search_cubit.dart';
 import 'package:movieapp/src/features/movies/presentation/cubit/movies_list/movies_cubit.dart';
 import 'package:movieapp/src/features/movies/presentation/screens/bottomNavBar.dart';
-import 'package:movieapp/torrent_test.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
