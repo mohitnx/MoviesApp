@@ -1,16 +1,16 @@
 # movieapp
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+State Managemet: Bloc/Cubit
+API: yts.mx/api
+Features:
+     1. Search for movies
+     2. Filter movies using genre, seeds, peers, time, etc
+     3. Movie Details
+     4. Share Movies
+     5. Play trailer in_app / on youtube
+     6. Download torrent file for any movie and automatiallly open any torrent client to download the movie
+     
+  Todo:
+      1. Login/Register to yts
+      2. Responsive UI
