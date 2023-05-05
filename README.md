@@ -24,8 +24,7 @@ Features:
   Todo:
   
       1. Login/Register to yts  
-      
-      2. Responsive UI  
+  
       
       
      
