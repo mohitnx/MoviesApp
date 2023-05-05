@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(authRouter);
-const DB = "mongodb+srv://mohitneupane157:4ZDxmkTSTVu4l4HD@cluster0.8aq9nzd.mongodb.net/?retryWrites=true&w=majority";
+const DB = "";
 mongoose.connect(DB).then(
     ()=>{
         console.log("Databse connected");
